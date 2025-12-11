@@ -72,6 +72,6 @@ function handleFormSubmit(event) {
         const name = formData.get('name') || 'User';
 
         // Redirect to thank you page with name
-        window.location.href = `thankyou.html?name=${encodeURIComponent(name)}`;
+        window.location.href = `/thankyou.html?name=${encodeURIComponent(name)}`;
     }, 500);
 }
