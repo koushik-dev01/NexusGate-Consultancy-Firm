@@ -115,3 +115,24 @@
         padding: 0px;
     }
 }
+
+@media (max-width:860px){
+    .work-with .country{
+        width: calc(25% - 20px);
+    }
+}
+@media (max-width:760px){
+    .work-with .country {
+        filter: grayscale(0);
+    }
+}
+@media (max-width:670px){
+    .work-with .country{
+        width: calc(33.33% - 20px);
+    }
+}
+@media (max-width:540px){
+    .work-with .country{
+        width: calc(50% - 20px);
+    }
+}
