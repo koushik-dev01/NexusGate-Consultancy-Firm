@@ -88,6 +88,10 @@
     .hero {
         padding: 100px 40px 60px 40px;
     }
+
+    .logo {
+        width: 150px;
+    }
 }
 
 
@@ -113,6 +117,10 @@
 
     .section-subtitle {
         padding: 0px;
+    }
+
+    .logo{
+        width: 120px;
     }
 }
 
