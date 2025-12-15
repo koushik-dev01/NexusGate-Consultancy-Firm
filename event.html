@@ -1,0 +1,393 @@
+<!-- NEW FILE: event.html (Complete self-contained event page similar to blog1.html) -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Africa Global Gateway - NexusGate International</title>
+    <link rel="shortcut icon" href="Assets/site-icon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="Assets/event-hero.webp">
+    <style>
+        /* === CORE VARIABLES === */
+        :root {
+            --primary-white: #ffffff;
+            --primary-black: #1a1a1a;
+            --text-gray: #6b7280;
+            --light-gray: #f3f4f6;
+            --gold: #d4af37;
+            --light-gold: #f0d167;
+            --dark-gold: #b8972e;
+        }
+
+        /* === RESET & BASE === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--text-gray);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* === EVENT HERO === */
+        .event-hero {
+            color: var(--primary-white);
+            position: relative;
+            overflow: hidden;
+            /* min-height: 100vh; */
+        }
+
+        .event-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            background-position: center center;
+        }
+
+        .gradient {
+            padding: 160px 40px 160px;
+            /* background: linear-gradient(0deg,
+                    rgba(0, 0, 0, 0) 0%,
+                    rgba(0, 0, 0, 0.55) 21%,
+                    rgba(0, 0, 0, 0.55) 65%,
+                    rgba(0, 0, 0, 0) 100%); */
+
+            background-color: rgba(0, 0, 0, 0.49);
+        }
+
+        .event-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .event-hero h1 {
+            font-size: clamp(36px, 5vw, 48px);
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .event-date {
+            font-size: 16px;
+            opacity: 0.95;
+            margin-bottom: 24px;
+            font-weight: 600;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+
+        .event-hero p {
+            font-size: 15px;
+            margin-bottom: 0;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        /* === MAIN CONTENT === */
+        .event-main-content {
+            padding: 120px 130px;
+            background: var(--primary-white);
+        }
+
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--light-gray);
+            color: var(--primary-black);
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+            font-size: 15px;
+        }
+
+        .back-to-home:hover {
+            background: var(--gold);
+            color: var(--primary-black);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(212, 175, 55, 0.3);
+        }
+
+        .back-to-home::before {
+            content: '←';
+            font-size: 18px;
+        }
+
+        .event-meta {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 3px solid var(--light-gold);
+        }
+
+        .event-meta span {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 8px 16px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+        }
+
+        .event-main-content h2 {
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 700;
+            color: var(--primary-black);
+            margin: 48px 0 24px;
+            line-height: 1.3;
+        }
+
+        .event-main-content h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary-black);
+            margin: 36px 0 20px;
+        }
+
+        .event-main-content p {
+            font-size: 16px;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(240, 209, 103, 0.05) 100%);
+            border-left: 4px solid var(--gold);
+            padding: 24px 32px;
+            margin: 32px 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box h3 {
+            color: var(--dark-gold);
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .focus-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .focus-item {
+            background: var(--light-gray);
+            padding: 28px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .focus-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--gold);
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--primary-black);
+            color: var(--primary-white);
+            text-align: center;
+            padding: 60px 40px 40px;
+        }
+
+        .footer-content p {
+            margin-bottom: 12px;
+            opacity: 0.8;
+        }
+
+        .footer-content p:first-child {
+            font-weight: 600;
+            font-size: 15px;
+            opacity: 1;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 850px) {
+            .gradient {
+                padding: 150px 30px 120px;
+            }
+
+            .event-main-content {
+                padding: 80px 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gradient {
+                padding: 140px 20px 100px;
+            }
+
+            .event-hero h1 {
+                font-size: 32px;
+            }
+
+            .event-meta {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
+
+            .focus-areas {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .event-main-content {
+                padding: 60px 20px;
+            }
+
+            .gradient {
+                padding: 120px 20px 80px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css">
+</head>
+
+<body>
+    <!-- EVENT HERO SECTION -->
+    <section class="event-hero">
+        <img src="Assets/event-qatar.webp" width="1920" height="1080" alt="Africa Global Gateway - Doha Qatar"
+            class="event-bg" fetchpriority="high" loading="eager">
+        <div class="gradient">
+            <div class="event-hero-content">
+                <div class="event-date">November 2027 – Doha, Qatar</div>
+                <h1>Africa Global Gateway</h1>
+                <p>High-level international business and investment forum designed to connect African governments with
+                    Asian and Gulf strategic partners for infrastructure, industrial, and development projects across
+                    Africa.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN EVENT CONTENT -->
+    <main class="event-main-content">
+        <a href="index.html#home" class="back-to-home"
+            onclick="window.location.href='index.html'; showPage('home'); return false;">Back to Home</a>
+
+        <div class="event-meta">
+            <span>International Forum</span>
+            <span>November 2027</span>
+            <span>Doha, Qatar</span>
+        </div>
+
+        <div class="highlight-box">
+            <h3>Hosted in Doha, Qatar</h3>
+            <p>A global hub for diplomacy, capital, and international partnerships, serving as a neutral and strategic
+                platform for decision-makers to meet, exchange, and structure concrete projects.</p>
+        </div>
+
+        <h2>Purpose of the Event</h2>
+        <p>Africa Global Gateway aims to facilitate direct dialogue between African public authorities and international
+            companies, unlock investment opportunities in key development sectors, accelerate partnerships between
+            Africa and global infrastructure players, and transform strategic discussions into bankable and executable
+            projects.</p>
+
+        <div class="highlight-box">
+            <h3>Why Qatar?</h3>
+            <p>Qatar stands at the crossroads of Africa, Asia, and the Gulf, offering a trusted diplomatic environment,
+                world-class infrastructure and connectivity, access to regional and international investors, and a
+                neutral platform for high-level engagement.</p>
+        </div>
+
+        <h2>Who Will Attend</h2>
+        <ul style="margin: 24px 0; padding-left: 24px;">
+            <li>African government representatives and public agencies</li>
+            <li>Asian and Gulf EPC companies and investors</li>
+            <li>Infrastructure, energy, water, housing, and digital solution providers</li>
+            <li>Financial institutions and development partners</li>
+            <li>Strategic advisors and project facilitators</li>
+        </ul>
+
+        <h2>Key Focus Areas</h2>
+        <div class="focus-areas">
+            <div class="focus-item">
+                <h3>Infrastructure & Transport</h3>
+                <p>Roads, railways, ports, airports, and logistics hubs.</p>
+            </div>
+            <div class="focus-item">
+                <h3>Energy & Renewable Solutions</h3>
+                <p>Solar, wind, grid modernization, and clean energy projects.</p>
+            </div>
+            <div class="focus-item">
+                <h3>Water & Environmental Projects</h3>
+                <p>Desalination, irrigation, wastewater treatment, and sustainability.</p>
+            </div>
+            <div class="focus-item">
+                <h3>Industrial Development & Manufacturing</h3>
+                <p>Factories, SEZs, industrial parks, and value-added processing.</p>
+            </div>
+            <div class="focus-item">
+                <h3>Digital Transformation & Smart Cities</h3>
+                <p>5G networks, smart governance, data centers, and IoT solutions.</p>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h3>Our Vision</h3>
+            <p>Africa Global Gateway is more than an event. It is a gateway for long-term partnerships, sustainable
+                development, and global cooperation focused on Africa's growth.</p>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2025 NexusGate International. All rights reserved.</p>
+            <p>Connecting Global Industries to Africa's Most Promising Opportunities</p>
+            <p>Based in Qatar • Serving Africa & Beyond</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling and basic interactions
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Parallax effect for hero background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroBg = document.querySelector('.event-bg');
+            if (heroBg) {
+                heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+
+</html>
